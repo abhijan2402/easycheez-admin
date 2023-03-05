@@ -1,0 +1,73 @@
+.comission_list_container{
+    /* border: 2px solid red; */
+}
+.comission_list_bar{
+    /* border: 2px solid rgb(125, 120, 120); */
+    display: flex;
+    background-color: #005B8F;
+}
+.comission_list_page .active {
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+}
+.list_home_icon{
+    /* border: 2px solid brown; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+.comission_list_page{
+    /* border: 3px solid; */
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0px 50px;
+}
+.comission_list_page p {
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 20px;
+}
+.comission_list{
+    padding: 0 10%;
+}
+.comission_percentwise{
+    /* border: 2px solid pink; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #D9D9D9;
+    margin-top: 25px;
+    border-radius: 5px;
+    padding: 0px 50px;
+}
+.comission_percentwise img {
+    height: 50px;
+}
+.comission_percentwise p {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+
+}
+.view_more{
+    /* border: 2px solid green; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D9D9D9;
+    margin-top: 25px;
+    border-radius: 5px;
+    padding: 0px 50px;
+    margin-bottom: 20px;
+}
+.view_more img {
+    height: 50px;
+}
+.view_more p {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+
+}
