@@ -1,13 +1,12 @@
 .admin_bar{
     /* border: 2px solid red; */
     display: flex;
-    padding: 0px 20px;
+    padding: 0px 30px;
+    align-items: center;
     background-color: #005B8F;
 }
 .home_icon{
     /* border: 2px solid black; */
-    display: flex;
-    align-items: center;
 }
 .home_icon img{
     width: 40px;
@@ -15,26 +14,27 @@
 .admin_page{
     color: #FFFFFF;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 15px;
     /* border: 2px solid pink; */
-    padding: 0 30px;
+    padding: 0 20px;
 }
 
 .comission_content{
     /* border: 2px solid black; */
     display: flex;
     justify-content: center;
-    height: 100vh;
+    /* height: 100vh; */
 }
 .shop_image{
     /* border: 2px solid yellow; */
-    /* width: 60%; */
+    width: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .shop_image img {
-    width: 72%;
+    width: 70%;
+    height: 100%;
 }
 .buttons{
     /* border: 3px solid green; */
@@ -46,11 +46,11 @@
     margin-top: 150px;
 }
 .btn {
-    width: 400px;
-    height: 60px;
+    width: 250px;
+    height: 45x;
 }
 .btn_link{
     text-decoration: none;
-    margin-top: 70px;
+    margin-top: 50px;
 }
 

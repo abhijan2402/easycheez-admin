@@ -36,10 +36,13 @@ const ForgetPassword = () => {
                 </Button>
               </Link>
             </div>
+            <div className="forget_link">
             <Link to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
               
               <p>Back to Login</p>
             </Link>
+            </div>
+            
           </div>
           <div className="bg_img">
             <img src={pic} alt="" />

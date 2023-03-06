@@ -1,6 +1,5 @@
 .subscriber_container{
-    border: 2px solid red;
-    
+    /* border: 2px solid red; */  
 }
 .subscriber_bar{
     /* border: 2px solid rgb(125, 120, 120); */
@@ -19,15 +18,25 @@
     align-items: center;
     padding: 0 20px;
 }
+.subscriber_home_icon img {
+    height: 40px;
+}
 .subscriber_page{
     /* border: 3px solid; */
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     width: 20%;
 }
 .subscriber_page p {
     color: #FFFFFF;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 15px;
     margin-left: 25px;
+}
+.subscriber_card{
+ /* border: 2px solid red; */
+ padding: 2% 10%;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-evenly;
 }

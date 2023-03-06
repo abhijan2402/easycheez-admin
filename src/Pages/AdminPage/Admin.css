@@ -22,8 +22,9 @@
     color: #005B8F;
 }
 .Admin_details p {
-    margin-top: 20px;
+    /* margin-top: 30px; */
     color: blue;
+    font-size: 15px;
     font-weight: 400;
 }
 .text_field{
@@ -39,6 +40,11 @@
 
 .admin_img img {
     height: 470px;
+}
+.links{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
 }
 
 

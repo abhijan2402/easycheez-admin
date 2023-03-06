@@ -22,7 +22,8 @@
     color: #005B8F;
 }
 .signup_details p {
-    margin-top: 20px;
+    margin-top: 30px;
+    font-size: 15px;
     color: blue;
     font-weight: 400;
 }
@@ -45,6 +46,11 @@
     left: -25px;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
+}
+.signup_link{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 

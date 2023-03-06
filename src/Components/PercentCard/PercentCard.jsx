@@ -9,10 +9,11 @@ const PercentCard = () => {
         <div className="percent_card_container">
             <div className="percent_card">
                 <div className="card_img">
+                    <h3>Varinda Shop(Grocery Store)</h3>
                     <img src={percentcard} alt="" />
                 </div>
                 <div className="card_details">
-                    <h3>Varinda Shop(Grocery Store)</h3>
+                    
                     <div className="details">
                         <p>Location : Malviya Nagar, Jaipur</p>
                         <p>Contact details : +91 333 444 5555</p>

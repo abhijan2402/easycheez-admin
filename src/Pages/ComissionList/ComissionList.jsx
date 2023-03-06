@@ -23,19 +23,22 @@ const ComissionList = () => {
                 </div>
 
 
+                <div className="cards">
+                <PercentCard/>
+                <PercentCard/>
+                <PercentCard/>
+                <PercentCard/>
+                <PercentCard/>
+                <PercentCard/>
+                </div>
 
-                <PercentCard/>
-                <PercentCard/>
-                <PercentCard/>
-                <PercentCard/>
-                <PercentCard/>
 
 
 
-                <div className="view_more">
+                {/* <div className="view_more">
                     <p>View More</p>
                     <img src={downarrow} alt="" />
-                </div>
+                </div> */}
             </div>
         </div>
     </>

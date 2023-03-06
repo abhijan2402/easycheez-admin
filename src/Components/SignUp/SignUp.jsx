@@ -47,6 +47,7 @@ const SignUp = () => {
                 Sign Up
               </Button>
             </div>
+            <div className="signup_link">
             <Link to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
               <p>
                 Already have an account?
@@ -55,6 +56,8 @@ const SignUp = () => {
                 </span>
               </p>
             </Link>
+            </div>
+           
           </div>
         </div>
       </div>

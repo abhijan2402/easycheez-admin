@@ -12,6 +12,9 @@ import ComissionList from './Pages/ComissionList/ComissionList';
 import Subscriber from './Pages/Subscriber/Subscriber';
 import Order from './Pages/Order/Order';
 import PercentCard from './Components/PercentCard/PercentCard';
+import SubCard from './Components/SubCard/SubCard';
+import OrderCard from './Components/OrderCard/OrderCard';
+import PopUp from './Components/CommissionPopUp/PopUp';
 
 
 function App() {
@@ -26,6 +29,10 @@ function App() {
         <Route path='/Subscriber' element={<Subscriber/>} />
         <Route path='/Order' element={<Order/>} />
         <Route path='/PercentCard' element={<PercentCard/>} />
+        <Route path='/SubCard' element={<SubCard/>} />
+        <Route path='/OrderCard' element={<OrderCard/>} />
+        
+        <Route path='/PopUp' element={<PopUp/>}/>
       </Routes>
     </div>
   );

@@ -1,0 +1,42 @@
+.order_card_container{
+    border: 3px solid #005B8F;
+    /* height: 405px; */
+    padding: 10px 10px;
+    margin-top: 30px;
+    border-radius: 9px;
+}
+.order_card{
+    display: flex;
+    border-radius: 8px;
+}
+.order_card_img img {
+    height: 300px;
+    width: 500px;
+}
+.order_card_details{
+    padding: 10px 80px;
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.order_card_details h3 {
+    color: #005B8F;
+    font-size: 35px;
+    margin: 10px;
+    /* align-items: center; */
+}
+.order_details{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* height: 0px; */
+    width: 380px;
+}
+.order_details p {
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 0px;
+}

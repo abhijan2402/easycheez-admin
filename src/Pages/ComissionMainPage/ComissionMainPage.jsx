@@ -17,8 +17,9 @@ const ComissionMainPage = () => {
         <div className="comission_content">
           <div className="shop_image"><img src={shop} alt="" /></div>
           <div className="buttons">
-            <Link to="/ComissionList" className='btn_link'><Button variant="contained" className='btn' style={{fontSize:"25px",backgroundColor:"#005B8F"}}>Comission List</Button></Link>
-            <Link to='/Subscriber' className='btn_link'><Button variant="contained" className='btn' style={{fontSize:"25px", backgroundColor:"#005B8F"}}>Subscriber List</Button></Link>
+            <Link to="/ComissionList" className='btn_link'><Button variant="contained" className='btn' style={{fontSize:"16px",backgroundColor:"#005B8F"}}>Comission List</Button></Link>
+            <Link to='/Subscriber' className='btn_link'><Button variant="contained" className='btn' style={{fontSize:"16px", backgroundColor:"#005B8F"}}>Subscriber List</Button></Link>
+            <Link to='/Order' className='btn_link'><Button variant="contained" className='btn' style={{fontSize:"16px", backgroundColor:"#005B8F"}}>Order Review</Button></Link>
             
           </div>
         </div>

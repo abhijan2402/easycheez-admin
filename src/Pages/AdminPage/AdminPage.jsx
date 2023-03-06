@@ -27,7 +27,7 @@ const AdminPage = () => {
                 className="password_field"
                 style={{marginTop:"20px"}}
               />
-
+                <Link to='ComissionMainPage' style={{textDecoration:"none"}}>
                 <Button
                   variant="contained"
                   className="btn_1"
@@ -35,14 +35,19 @@ const AdminPage = () => {
                 >
                   Login
                 </Button>
+                </Link>
+
 
             </div>
+            <div className="links">
             <Link to="/ForgetPassword" style={{ textDecoration: "none", cursor: "pointer" }}>
               <p>Forget Password ?</p>
             </Link>
             <Link to="/SignUp" style={{ textDecoration: "none", cursor: "pointer" }}>
               <p>Don't have an account? <span style={{color:"black"}}>Sign Up</span></p>
             </Link>
+            </div>
+           
           </div>
           <div className="admin_img">
             <img src={pic} alt="" />
