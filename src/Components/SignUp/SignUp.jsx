@@ -1,11 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SignUp.css";
-import pic from "../../assest/signup.png";
 import TextField from "@mui/material/TextField";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-
+import { auth, db } from "../../firebase";
+import { doc, setDoc, collection, } from "firebase/firestore";
 const SignUp = () => {
+  const [email, setemail] = useState('')
+  const [password, setpassword] = useState('');
+  const NewUser = async () => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user.uid)
+        const userRef = doc(db, 'Users', user.uid);
+        setDoc(userRef, {
+          admin: true,
+          email: email,
+        })
+          .then(() => {
+            alert("Account Created");
+            // navigate('/VTechadmin')
+          })
+      })
+      .catch((error) => {
+        switch (error.code) {
+          case "auth/email-already-in-use":
+            alert("Email Already Exists")
+            break;
+          default:
+            break;
+        }
+      });
+  }
   return (
     <>
       <div className="signup_container_main">
@@ -21,6 +49,7 @@ const SignUp = () => {
                 label="Email"
                 variant="outlined"
                 className="text_field"
+                onChange={(event) => setemail(event.target.value)}
               />
               <TextField
                 id="outlined-password-input"
@@ -29,6 +58,7 @@ const SignUp = () => {
                 autoComplete="current-password"
                 className="password_field"
                 style={{ marginTop: "20px" }}
+                onChange={(event) => setpassword(event.target.value)}
               />
               <TextField
                 id="outlined-password-input"
@@ -43,6 +73,7 @@ const SignUp = () => {
                 variant="contained"
                 className="btn_1"
                 style={{ backgroundColor: "#005B8F", marginTop: "20px" }}
+                onClick={NewUser}
               >
                 Sign Up
               </Button>

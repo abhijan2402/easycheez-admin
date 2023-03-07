@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Frogetpassword.css";
 import pic from "../../assest/fg_pass.png";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "../../firebase";
 const ForgetPassword = () => {
+  const [email, setemail] = useState(null)
+  const ResetLink = async () => {
+    try {
+      sendPasswordResetEmail(auth, email)
+        .then(() => {
+
+          console.log("link sent successfully")
+          setemail("")
+          alert("Link Send Successfully (Check Spam Also)")
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode)
+          console.log(errorMessage)
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <>
       <div className="container_main">
@@ -18,6 +39,7 @@ const ForgetPassword = () => {
                 label="Email"
                 variant="outlined"
                 className="text_field"
+                onChange={(event) => setemail(event.target.value)}
               />
               <Link
                 to=""
@@ -31,6 +53,7 @@ const ForgetPassword = () => {
                   variant="contained"
                   className="btn_1"
                   style={{ backgroundColor: "#005B8F" }}
+                  onClick={ResetLink}
                 >
                   Send Link
                 </Button>

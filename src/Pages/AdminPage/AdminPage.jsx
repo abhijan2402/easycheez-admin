@@ -1,11 +1,34 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import './Admin.css';
 import pic from "../../assest/adminpic.png";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 const AdminPage = () => {
+  const [email, setemail] = useState('')
+  const [password, setpassword] = useState('');
+  const navigate = useNavigate()
+  const newUser = async () => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log(userCredential.user.uid)
+        navigate('/ComissionMainPage')
+      })
+      .catch((error) => {
+        switch (error.code) {
+          case "auth/user-not-found":
+            alert("Incorrect Email")
+            break;
+          case "auth/wrong-password":
+            alert("Incorrect Password");
+            break;
+          default:
+            break;
+        }
+      });
+  }
   return (
     <>
       <div className="container-main">
@@ -18,6 +41,7 @@ const AdminPage = () => {
                 label="Email"
                 variant="outlined"
                 className="text_field"
+                onChange={(event) => setemail(event.target.value)}
               />
               <TextField
                 id="outlined-password-input"
@@ -26,16 +50,18 @@ const AdminPage = () => {
                 autoComplete="current-password"
                 className="password_field"
                 style={{ marginTop: "20px" }}
+                onChange={(event) => setpassword(event.target.value)}
               />
-              <Link to='ComissionMainPage' style={{ textDecoration: "none" }}>
-                <Button
-                  variant="contained"
-                  className="btn_1"
-                  style={{ backgroundColor: "#005B8F", marginTop: "20px" }}
-                >
-                  Login
-                </Button>
-              </Link>
+              {/* <Link to='ComissionMainPage' style={{ textDecoration: "none" }}> */}
+              <Button
+                variant="contained"
+                className="btn_1"
+                style={{ backgroundColor: "#005B8F", marginTop: "20px" }}
+                onClick={newUser}
+              >
+                Login
+              </Button>
+              {/* </Link> */}
 
 
             </div>
