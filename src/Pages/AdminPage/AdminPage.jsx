@@ -14,7 +14,7 @@ const AdminPage = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential.user.uid)
-        navigate('/ComissionMainPage')
+        // navigate('/')
       })
       .catch((error) => {
         switch (error.code) {
