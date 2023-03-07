@@ -1,11 +1,35 @@
-import React from 'react'
-
+import React, { useContext, useEffect, useState } from 'react'
+import { db } from "../../firebase";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { ContextData } from '../../App';
 import './Order.css'
 import home from '../../assest/home.png';
 import OrderCard from '../../Components/OrderCard/OrderCard'
 import { Link } from 'react-router-dom';
 
 const Order = () => {
+  const { userUid, getAutherUserDetails } = useContext(ContextData);
+  const [orderDetail, setOrderDetail] = useState([]);
+  const [TotalOrderLength, setTotalOrderLength] = useState('')
+  useEffect(() => {
+    getOrderData();
+  }, [])
+
+  const getOrderData = () => {
+    let resultArray = [];
+    // let conditinoOne = where("UserUid", "==", userUid);
+    const baseQuery = query(collection(db, "OrderPage"));
+    getDocs(baseQuery).then((res) => {
+      res.forEach((item) => {
+        resultArray.push({ id: item.id, ...item.data() });
+      })
+      let len = resultArray
+      setTotalOrderLength(len.length)
+      // console.log(TotalOrderLength, "length")
+      setOrderDetail(resultArray)
+      // console.log(orderDetail)
+    })
+  }
   return (
     <>
       <div className="order_container">
@@ -24,7 +48,7 @@ const Order = () => {
             <p>Stores : 100</p>
             <span className='TODiv'>
 
-              <p className='TotOrderButton' style={{ color: "white" }}>Total Orders : 4966</p>
+              <p className='TotOrderButton' style={{ color: "white" }}>Total Orders : {TotalOrderLength}</p>
             </span>
           </div>
           <div className="order">
