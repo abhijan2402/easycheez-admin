@@ -37,15 +37,15 @@ const ForgetPassword = () => {
               </Link>
             </div>
             <div className="forget_link">
-            <Link to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
-              
-              <p>Back to Login</p>
-            </Link>
+              <Link to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
+
+                <p>Back to Login</p>
+              </Link>
             </div>
-            
+
           </div>
           <div className="bg_img">
-            <img src={pic} alt="" />
+            <img src="https://static1.squarespace.com/static/5ebd684d21cb6b6024d21293/t/62273f5ca36a923ea07dc5a7/1646739296071/undraw_Forgot_password_re_hxwm.png?format=1500w" alt="" />
           </div>
         </div>
       </div>

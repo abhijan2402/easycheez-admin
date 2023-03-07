@@ -11,7 +11,7 @@ const SignUp = () => {
       <div className="signup_container_main">
         <div className="signup_container">
           <div className="signup_img">
-            <img src={pic} alt="" />
+            <img src="https://bpak.com/wp-content/uploads/2023/01/undraw_Fingerprint_login_re_t71l-500x404.png" alt="" />
           </div>
           <div className="signup_details">
             <h1>Sign Up</h1>
@@ -48,16 +48,16 @@ const SignUp = () => {
               </Button>
             </div>
             <div className="signup_link">
-            <Link to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
-              <p>
-                Already have an account?
-                <span style={{ color: "black", paddingLeft: "5px" }}>
-                  Log In
-                </span>
-              </p>
-            </Link>
+              <Link to="/" style={{ textDecoration: "none", cursor: "pointer" }}>
+                <p>
+                  Already have an account?
+                  <span style={{ color: "black", paddingLeft: "5px" }}>
+                    Log In
+                  </span>
+                </p>
+              </Link>
             </div>
-           
+
           </div>
         </div>
       </div>

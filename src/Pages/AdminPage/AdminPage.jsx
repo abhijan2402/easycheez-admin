@@ -25,32 +25,32 @@ const AdminPage = () => {
                 type="password"
                 autoComplete="current-password"
                 className="password_field"
-                style={{marginTop:"20px"}}
+                style={{ marginTop: "20px" }}
               />
-                <Link to='ComissionMainPage' style={{textDecoration:"none"}}>
+              <Link to='ComissionMainPage' style={{ textDecoration: "none" }}>
                 <Button
                   variant="contained"
                   className="btn_1"
-                  style={{ backgroundColor: "#005B8F", marginTop:"20px" }}
+                  style={{ backgroundColor: "#005B8F", marginTop: "20px" }}
                 >
                   Login
                 </Button>
-                </Link>
+              </Link>
 
 
             </div>
             <div className="links">
-            <Link to="/ForgetPassword" style={{ textDecoration: "none", cursor: "pointer" }}>
-              <p>Forget Password ?</p>
-            </Link>
-            <Link to="/SignUp" style={{ textDecoration: "none", cursor: "pointer" }}>
-              <p>Don't have an account? <span style={{color:"black"}}>Sign Up</span></p>
-            </Link>
+              <Link to="/ForgetPassword" style={{ textDecoration: "none", cursor: "pointer" }}>
+                <p>Forget Password ?</p>
+              </Link>
+              <Link to="/SignUp" style={{ textDecoration: "none", cursor: "pointer" }}>
+                <p>Don't have an account? <span style={{ color: "black" }}>Sign Up</span></p>
+              </Link>
             </div>
-           
+
           </div>
           <div className="admin_img">
-            <img src={pic} alt="" />
+            <img src="https://rocketlink.io/wp-content/uploads/2021/05/undraw_Social_user_re_8cky.png" alt="" />
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Routes, Route} from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 
 import './App.css';
@@ -21,18 +21,18 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<AdminPage/>} />
-        <Route path='/ForgetPassword' element={<ForgetPassword/>} />
-        <Route path='/SignUp' element={<SignUp/>} />
-        <Route path='/ComissionMainPage' element={<ComissionMainPage/>} />
-        <Route path='/ComissionList' element={<ComissionList/>} />
-        <Route path='/Subscriber' element={<Subscriber/>} />
-        <Route path='/Order' element={<Order/>} />
-        <Route path='/PercentCard' element={<PercentCard/>} />
-        <Route path='/SubCard' element={<SubCard/>} />
-        <Route path='/OrderCard' element={<OrderCard/>} />
-        
-        <Route path='/PopUp' element={<PopUp/>}/>
+        <Route path='/' element={<AdminPage />} />
+        <Route path='/ForgetPassword' element={<ForgetPassword />} />
+        <Route path='/SignUp' element={<SignUp />} />
+        <Route path='/ComissionMainPage' element={<ComissionMainPage />} />
+        <Route path='/ComissionList' element={<ComissionList />} />
+        <Route path='/Subscriber' element={<Subscriber />} />
+        <Route path='/Order' element={<Order />} />
+        <Route path='/PercentCard' element={<PercentCard />} />
+        <Route path='/SubCard' element={<SubCard />} />
+        <Route path='/OrderCard' element={<OrderCard />} />
+
+        <Route path='/PopUp' element={<PopUp />} />
       </Routes>
     </div>
   );

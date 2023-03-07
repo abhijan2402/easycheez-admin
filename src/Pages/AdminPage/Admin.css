@@ -1,47 +1,55 @@
-.container-main{
+.container-main {
     /* border: 2px solid red; */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
-.Admin_container{
+
+.Admin_container {
     /* border: 2px solid red; */
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.Admin_details{
+
+.Admin_details {
     /* border: 3px solid green; */
     width: 50%;
     padding: 50px;
 }
+
 .Admin_details h1 {
     font-size: 60px;
     color: #005B8F;
 }
+
 .Admin_details p {
     /* margin-top: 30px; */
     color: blue;
     font-size: 15px;
     font-weight: 400;
 }
-.text_field{
+
+.text_field {
     width: 500px;
 }
+
 .password_field {
     width: 500px;
 }
 
-.btn_1{
+.btn_1 {
     width: 250px;
 }
 
 .admin_img img {
     height: 470px;
+    width: 97%
 }
-.links{
+
+.links {
     margin-top: 10px;
     display: flex;
     justify-content: space-around;
