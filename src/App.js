@@ -39,7 +39,7 @@ function App() {
       {
         !userUid ?
           <Routes>
-            <Route path='/' element={<AdminPage />} />
+            <Route path='/easycheez-admin/' element={<AdminPage />} />
             <Route path='/ForgetPassword' element={<ForgetPassword />} />
             <Route path='/SignUp' element={<SignUp />} />
           </Routes> :
