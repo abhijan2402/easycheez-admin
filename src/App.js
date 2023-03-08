@@ -54,7 +54,7 @@ function App() {
 
               }}>
                 <Routes>
-                  <Route path='/' element={<ComissionMainPage />} />
+                  <Route path='/easycheez-admin/' element={<ComissionMainPage />} />
                   <Route path='/ComissionList' element={<ComissionList />} />
                   <Route path='/Subscriber' element={<Subscriber />} />
                   <Route path='/Order' element={<Order />} />
