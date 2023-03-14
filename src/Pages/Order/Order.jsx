@@ -57,11 +57,6 @@ const Order = () => {
             <OrderCard />
             <OrderCard />
             <OrderCard />
-            <OrderCard />
-            <OrderCard />
-            <OrderCard />
-            <OrderCard />
-            <OrderCard />
           </div>
         </div>
       </div>

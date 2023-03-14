@@ -1,9 +1,9 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import './Subscriber.css'
-import home from '../../assest/home.png';
-import SubCard from '../../Components/SubCard/SubCard';
+import "./Subscriber.css";
+import home from "../../assest/home.png";
+import SubCard from "../../Components/SubCard/SubCard";
 
 const Subscriber = () => {
   return (
@@ -12,9 +12,10 @@ const Subscriber = () => {
         <div className="subscriber_bar">
           {/* <div className="subscriber_home_icon"><img src={home} alt="" /></div> */}
           <div className="subscriber_page">
-
-            <Link to='/ComissionList' style={{ textDecoration: "none" }}><p>Comission</p></Link>
-            <p className='active'>Subscriber</p>
+            <Link to="/ComissionList" style={{ textDecoration: "none" }}>
+              <p>Comission</p>
+            </Link>
+            <p className="active">Subscriber</p>
           </div>
         </div>
         <div className="subscriber_card">
@@ -23,10 +24,9 @@ const Subscriber = () => {
           <SubCard />
           <SubCard />
         </div>
-
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Subscriber
+export default Subscriber;

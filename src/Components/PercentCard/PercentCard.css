@@ -48,3 +48,92 @@ h3 {
     font-size: 18px;
     margin: 5px;
 }
+
+
+@media screen and (max-width:1290px) {
+    h3 {
+        font-size: 20px;
+    }
+}
+@media screen and (max-width:1024px) {
+    .card_details{
+        width: 290px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .details p{
+        font-size: 14px;
+    }
+    .card_img img {
+        height: 170px;
+    }
+}
+@media screen and (max-width:886px) {
+    .percent_card_container{
+        width: 40%;
+    }
+    .card_details{
+        width: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+@media screen and (max-width:768px) {
+    .percent_card_container{
+        width: 70%;
+    }
+    .card_details{
+        width: 92%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .card_img img {
+        height: 190px;
+    }
+}
+@media screen and (max-width:560px) {
+    .percent_card_container{
+        width: 90%;
+    }
+    .card_details{
+        width: 92%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .card_img img {
+        height: 190px;
+    }
+    .comission_percentwise p {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width:378px) {
+    .percent_card_container{
+        width: 100%;
+    }
+    .card_details{
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .card_img img {
+        height: 150px;
+    }
+
+    .comission_percentwise p {
+        font-size: 12px;
+        font-weight: 600;
+        text-align: center;
+    }
+    h3{
+        font-size: 15px;
+    }
+    .details p{
+        font-size: 12px;
+    }
+}

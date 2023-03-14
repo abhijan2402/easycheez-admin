@@ -1,80 +1,129 @@
 .order_bar {
-    /* border: 2px solid rgb(125, 120, 120); */
-    display: flex;
-    justify-content: space-between;
-    background-color: #005B8F;
-    justify-content: end;
-
+  /* border: 2px solid rgb(125, 120, 120); */
+  display: flex;
+  justify-content: space-between;
+  background-color: #005b8f;
+  justify-content: end;
 }
 
 .order_list_page .active {
-    color: rgb(0, 0, 0);
-    font-weight: 700;
-    padding-right: 30px;
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  padding-right: 30px;
 }
 
 .order_home_icon {
-    /* border: 2px solid brown; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
 }
 
 .order_home_icon img {
-    height: 40px;
+  height: 40px;
 }
 
 .order_list_page {
-    /* border: 3px solid; */
-    display: flex;
-    width: 20%;
-    justify-content: space-evenly;
+  display: flex;
+  width: 20%;
+  justify-content: space-evenly;
 }
 
 .order_list_page p {
-    color: #FFFFFF;
-    font-weight: 600;
-    font-size: 15px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
 }
 
 .order_review {
-    /* border: 3px solid black; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .order_review h1 {
-    font-size: 35px;
-    color: #005B8F;
+  font-size: 35px;
+  color: #005b8f;
 }
 
 .order_store_total {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-    font-size: 20px;
-    font-weight: 500;
-    width: 70%;
-    height: 2%;
-
-
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 500;
+  width: 70%;
+  height: 2%;
+  /* border: 2px solid; */
 }
 
 .TotOrderButton {
-    color: "aliceblue";
-    margin-top: "30px";
-    font-size: 13px;
+  color: "aliceblue";
+  margin-top: "30px";
+  font-size: 13px;
 }
 
 .TODiv {
-    border-radius: 8px;
-    padding: 2px 10px;
-    background-color: #005B8F;
-    color: "white";
-    height: 40px;
-    margin-top: 1%;
+  border-radius: 8px;
+  padding: 2px 10px;
+  background-color: #005b8f;
+  color: "white";
+  height: 40px;
+  margin-top: 1%;
+}
 
 
+/* Media Queary */
+@media screen and (max-width: 1100px) {
+  .order {
+    /* border: 2px solid greenyellow; */
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .order_list_page {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .order {
+    display: block;
+    width: 80%;
+  }
+}
+@media screen and (max-width: 658px) {
+  .order_review {
+    display: block;
+  }
+  .order {
+    width: 100%;
+  }
+  .order_store_total {
+    width: 92%;
+  }
+
+  .order_review h1 {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 538px) {
+  .order_review {
+    display: flex;
+  }
+  .order {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .order_store_total {
+    width: 92%;
+  }
+
+  .order_review h1 {
+    text-align: center;
+  }
 }

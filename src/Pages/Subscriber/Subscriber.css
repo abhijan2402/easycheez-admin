@@ -1,54 +1,65 @@
-.subscriber_container {
-    /* border: 2px solid red; */
-}
-
 .subscriber_bar {
-    /* border: 2px solid rgb(125, 120, 120); */
-    display: flex;
-    justify-content: space-between;
-    background-color: #005B8F;
-    justify-content: end;
+  /* border: 2px solid rgb(125, 120, 120); */
+  display: flex;
+  justify-content: space-between;
+  background-color: #005b8f;
+  justify-content: end;
 }
 
 .subscriber_page .active {
-    color: rgb(0, 0, 0);
-    font-weight: 700;
-    justify-content: end;
-    text-align: right;
-    /* ali */
-
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  justify-content: end;
+  text-align: right;
 }
 
 .subscriber_home_icon {
-    /* border: 2px solid brown; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
+  /* border: 2px solid brown; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
 }
 
 .subscriber_home_icon img {
-    height: 40px;
+  height: 40px;
 }
 
 .subscriber_page {
-    /* border: 3px solid; */
-    display: flex;
-    justify-content: space-around;
-    width: 20%;
+  /* border: 3px solid; */
+  display: flex;
+  justify-content: space-around;
+  width: 20%;
 }
 
 .subscriber_page p {
-    color: #FFFFFF;
-    font-weight: 600;
-    font-size: 15px;
-    margin-left: 25px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  margin-left: 25px;
 }
 
 .subscriber_card {
-    /* border: 2px solid red; */
-    padding: 2% 10%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+  /* border: 2px solid red; */
+  padding: 2% 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+/* Media Queary */
+@media screen and (max-width: 1160px) {
+  .subscriber_card {
+    padding: 5% 2%;
+  }
+  .subscriber_page {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .subscriber_card {
+    padding: 5% 1%;
+    flex-direction: column;
+    align-items: center;
+  }
 }

@@ -11,7 +11,10 @@ const SubCard = () => {
         <div className="subscription_container"></div>
         <div className="subscription_detail_container">
           <h4>Varinda Shop</h4>
-          <img src="https://knowreva.netlify.app/buildings/undraw_Building_re_xfcm.png" alt="" />
+          <img
+            src="https://knowreva.netlify.app/buildings/undraw_Building_re_xfcm.png"
+            alt=""
+          />
           <p>Subscription valid till - 9 FEB</p>
           <p className="sub">Subscription 499/-</p>
         </div>

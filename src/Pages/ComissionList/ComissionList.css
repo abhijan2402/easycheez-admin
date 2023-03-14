@@ -96,3 +96,22 @@
     flex-wrap: wrap;
     /* border: 2px solid green; */
 }
+
+
+
+/* Media Queary */
+@media screen and (max-width:1290px) {
+    .comission_list
+    {
+        padding: 0 4%;
+    }
+}
+@media screen and (max-width:380px) {
+    .comission_list
+    {
+        padding: 0 1%;
+    }
+    .comission_percentwise img {
+        height: 25px;
+    }
+}
