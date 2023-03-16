@@ -44,14 +44,15 @@ const SignUp = () => {
           <div className="signup_details">
             <h1>Sign Up</h1>
             <div className="email">
-              <TextField
+              {/* <TextField
                 id="outlined-basic"
                 label="Email"
                 variant="outlined"
                 className="text_field"
                 onChange={(event) => setemail(event.target.value)}
-              />
-              <TextField
+              /> */}
+              <input type="text" placeholder="Email" className="email-input" onChange={(event) => setemail(event.target.value)} />
+              {/* <TextField
                 id="outlined-password-input"
                 label="Password"
                 type="password"
@@ -59,15 +60,17 @@ const SignUp = () => {
                 className="password_field"
                 style={{ marginTop: "20px" }}
                 onChange={(event) => setpassword(event.target.value)}
-              />
-              <TextField
+              /> */}
+               <input type="password" placeholder="password" className="email-input" style={{marginTop:"30px"}}  onChange={(event) => setpassword(event.target.value)} />
+              {/* <TextField
                 id="outlined-password-input"
                 label="Confirm Password"
                 type="password"
                 autoComplete="current-password"
                 className="password_field"
                 style={{ marginTop: "20px" }}
-              />
+              /> */}
+              <input type="password" placeholder="confirm password" className="email-input" style={{marginTop:"30px"}}  onChange={(event) => setpassword(event.target.value)} />
 
               <Button
                 variant="contained"

@@ -36,14 +36,15 @@ const AdminPage = () => {
           <div className="Admin_details">
             <h1>Admin page</h1>
             <div className="email">
-              <TextField
+              {/* <TextField
                 id="outlined-basic"
                 label="Email"
                 variant="outlined"
                 className="text_field"
                 onChange={(event) => setemail(event.target.value)}
-              />
-              <TextField
+              /> */}
+              <input type="text" placeholder="Email" className="email-input" onChange={(event) => setemail(event.target.value)} />
+              {/* <TextField
                 id="outlined-password-input"
                 label="Password"
                 type="password"
@@ -51,7 +52,9 @@ const AdminPage = () => {
                 className="password_field"
                 style={{ marginTop: "20px" }}
                 onChange={(event) => setpassword(event.target.value)}
-              />
+              /> */}
+              <input type="password" placeholder="password" className="email-input" style={{marginTop:"40px"}}  onChange={(event) => setpassword(event.target.value)} />
+
               {/* <Link to='ComissionMainPage' style={{ textDecoration: "none" }}> */}
               <Button
                 variant="contained"
