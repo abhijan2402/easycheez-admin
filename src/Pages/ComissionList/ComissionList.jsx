@@ -25,11 +25,6 @@ const ComissionList = () => {
 
                     <div className="cards">
                         <PercentCard />
-                        <PercentCard />
-                        <PercentCard />
-                        <PercentCard />
-                        <PercentCard />
-                        <PercentCard />
                     </div>
 
 

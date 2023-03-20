@@ -20,9 +20,6 @@ const Subscriber = () => {
         </div>
         <div className="subscriber_card">
           <SubCard />
-          <SubCard />
-          <SubCard />
-          <SubCard />
         </div>
       </div>
     </>
