@@ -11,12 +11,15 @@ const Order = () => {
   const { userUid, getAutherUserDetails } = useContext(ContextData);
   const [orderDetail, setOrderDetail] = useState([]);
   const [TotalOrderLength, setTotalOrderLength] = useState('')
+  const [orderDetail1, setOrderDetail1] = useState([]);
+  const [TotalOrderLength1, setTotalOrderLength1] = useState('')
   useEffect(() => {
     getOrderData();
   }, [])
 
   const getOrderData = () => {
     let resultArray = [];
+    let resultArray1 = [];
     // let conditinoOne = where("UserUid", "==", userUid);
     const baseQuery = query(collection(db, "OrderPage"));
     getDocs(baseQuery).then((res) => {
@@ -27,9 +30,22 @@ const Order = () => {
       setTotalOrderLength(len.length)
       // console.log(TotalOrderLength, "length")
       setOrderDetail(resultArray)
-      // console.log(orderDetail)
+      console.log(orderDetail)
+    })
+    const baseQuery1 = query(collection(db, "StoreRegis"));
+    getDocs(baseQuery1).then((res) => {
+      res.forEach((item) => {
+        resultArray1.push({ id: item.id, ...item.data() });
+      })
+      let len1 = resultArray1
+      setTotalOrderLength1(len1.length)
+      // console.log(TotalOrderLength, "length")
+      setOrderDetail1(resultArray1)
+      console.log(orderDetail1)
     })
   }
+ 
+  
   return (
     <>
       <div className="order_container">
@@ -41,11 +57,11 @@ const Order = () => {
 
           </div>
         </div>
-
+      
         <div className="order_review">
           <h1>Order Review page</h1>
           <div className="order_store_total">
-            <p>Stores : 100</p>
+            <p>Stores : {TotalOrderLength1}</p>
             <span className='TODiv'>
 
               <p className='TotOrderButton' style={{ color: "white" }}>Total Orders : {TotalOrderLength}</p>
@@ -53,12 +69,10 @@ const Order = () => {
           </div>
           <div className="order">
             <OrderCard />
-            <OrderCard />
-            <OrderCard />
-            <OrderCard />
-            <OrderCard />
+          
           </div>
         </div>
+
       </div>
     </>
   )

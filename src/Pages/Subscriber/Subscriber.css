@@ -1,16 +1,18 @@
 .subscriber_bar {
-  /* border: 2px solid rgb(125, 120, 120); */
+  border: 2px solid rgb(125, 120, 120);
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   background-color: #005b8f;
-  justify-content: end;
+  justify-content: center;
 }
 
 .subscriber_page .active {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-weight: 700;
   justify-content: end;
-  text-align: right;
+  text-align: center;
+  align-self: center;
+width:"100%"
 }
 
 .subscriber_home_icon {
@@ -27,16 +29,17 @@
 
 .subscriber_page {
   /* border: 3px solid; */
-  display: flex;
-  justify-content: space-around;
-  width: 20%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .subscriber_page p {
   color: #ffffff;
   font-weight: 600;
   font-size: 15px;
-  margin-left: 25px;
+  /* margin-left: 25px; */
 }
 
 .subscriber_card {
@@ -53,7 +56,7 @@
     padding: 5% 2%;
   }
   .subscriber_page {
-    width: 40%;
+    width: 100%;
   }
 }
 @media screen and (max-width: 768px) {
@@ -61,5 +64,14 @@
     padding: 5% 1%;
     flex-direction: column;
     align-items: center;
+  }
+  .subscriber_page {
+    width: 100%;
+    text-align: center;
+  }
+  .active{
+    text-align: center;
+    /* border: 1px solid red; */
+    width:"100%"
   }
 }

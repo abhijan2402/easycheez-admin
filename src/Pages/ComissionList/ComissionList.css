@@ -6,7 +6,8 @@
     /* border: 2px solid rgb(125, 120, 120); */
     display: flex;
     background-color: #005B8F;
-
+    width: 100%;
+    
 }
 
 .comission_list_page .active {
@@ -40,6 +41,9 @@
     color: #FFFFFF;
     font-weight: 600;
     font-size: 15px;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
 }
 
 .comission_list {
