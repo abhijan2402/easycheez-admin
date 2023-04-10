@@ -13,6 +13,8 @@ import SubCard from './Components/SubCard/SubCard';
 import OrderCard from './Components/OrderCard/OrderCard';
 import PopUp from './Components/CommissionPopUp/PopUp';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import ActiveOrderCard from './Components/OrderCard/ActiveOrderCard';
+import CompletedOrderCard from './Components/OrderCard/CompletedOrderCard';
 export const ContextData = createContext();
 function App() {
   const [userUid, setUserUid] = useState(null);
@@ -61,6 +63,9 @@ function App() {
                   <Route path='/PercentCard' element={<PercentCard />} />
                   <Route path='/SubCard' element={<SubCard />} />
                   <Route path='/OrderCard' element={<OrderCard />} />
+                  <Route path='/ActiveOrderCard' element={<ActiveOrderCard />} />
+                  <Route path='/ComOrderCard' element={<CompletedOrderCard />} />
+
                 </Routes>
               </ContextData.Provider>
             }
