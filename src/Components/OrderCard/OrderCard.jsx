@@ -4,10 +4,10 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import './OrderCard.css'
 import orderImage from '../../assest/order.png'
 import { ContextData } from '../../App';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const OrderCard = () => {
-    let glob = 0
+    
     const { userUid, getAutherUserDetails } = useContext(ContextData);
     const [orderDetail, setOrderDetail] = useState([]);
     const [StoreDetail, setStoreDetail] = useState([]);
@@ -53,12 +53,18 @@ const OrderCard = () => {
                                 </div>
                                 <div style={{ width: "100%", display: "flex", justifyContent: "space-around", textAlign: "center" }}>
 
-                                    <Link
-                                        to="/ActiveOrderCard"
-                                        style={{ textDecoration: "none", cursor: "pointer" }}
-                                    ><button style={{ color: "white", backgroundColor: "#005b8f", borderRadius: "5px", padding: "5px 10px 5px 10px" }}>See Active Order</button></Link>
-                                    <Link to="/ComOrderCard"
-                                        style={{ textDecoration: "none", cursor: "pointer" }}><button style={{ color: "white", backgroundColor: "#005b8f", borderRadius: "5px", padding: "5px 10px 5px 10px" }}>See Completed Order</button></Link>
+                                    <Link to="/ActiveOrderCard" style={{ textDecoration: "none", cursor: "pointer" }}
+                                        state={{item:item}}
+                                    >
+                                        <button style={{ color: "white", backgroundColor: "#005b8f", borderRadius: "5px", padding: "5px 10px 5px 10px" }}>
+                                            See Active Order
+                                        </button>
+                                    </Link>
+                                    <Link to="/ComOrderCard" style={{ textDecoration: "none", cursor: "pointer" }} state={{item:item}}>
+                                        <button style={{ color: "white", backgroundColor: "#005b8f", borderRadius: "5px", padding: "5px 10px 5px 10px" }}>
+                                            See Completed Order
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

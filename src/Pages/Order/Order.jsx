@@ -20,7 +20,6 @@ const Order = () => {
   const getOrderData = () => {
     let resultArray = [];
     let resultArray1 = [];
-    // let conditinoOne = where("UserUid", "==", userUid);
     const baseQuery = query(collection(db, "OrderPage"));
     getDocs(baseQuery).then((res) => {
       res.forEach((item) => {
@@ -28,9 +27,7 @@ const Order = () => {
       })
       let len = resultArray
       setTotalOrderLength(len.length)
-      // console.log(TotalOrderLength, "length")
       setOrderDetail(resultArray)
-      console.log(orderDetail)
     })
     const baseQuery1 = query(collection(db, "StoreRegis"));
     getDocs(baseQuery1).then((res) => {
@@ -39,9 +36,7 @@ const Order = () => {
       })
       let len1 = resultArray1
       setTotalOrderLength1(len1.length)
-      // console.log(TotalOrderLength, "length")
       setOrderDetail1(resultArray1)
-      console.log(orderDetail1)
     })
   }
  
@@ -50,7 +45,6 @@ const Order = () => {
     <>
       <div className="order_container">
         <div className="order_bar">
-          {/* <div className="order_home_icon"><img src={home} alt="" /></div> */}
           <div className="order_list_page">
             <Link to='/ComissionList' style={{ textDecoration: "none" }}><p>Comission</p></Link>
             <Link to='/Subscriber' style={{ textDecoration: "none" }}><p>Subscribers</p></Link>
