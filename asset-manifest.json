@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/easycheez-admin/static/css/main.6e17fa81.css",
-    "main.js": "/easycheez-admin/static/js/main.6482da9d.js",
+    "main.css": "/easycheez-admin/static/css/main.18728e66.css",
+    "main.js": "/easycheez-admin/static/js/main.40403e1c.js",
     "static/js/787.73df07b0.chunk.js": "/easycheez-admin/static/js/787.73df07b0.chunk.js",
     "static/media/order.png": "/easycheez-admin/static/media/order.34cca44c7c8d19a19be3.png",
     "static/media/fg_pass.png": "/easycheez-admin/static/media/fg_pass.456cf98112af0880e3a3.png",
@@ -10,12 +10,12 @@
     "static/media/shop.png": "/easycheez-admin/static/media/shop.b2c9d05b713a98439742.png",
     "static/media/sub.png": "/easycheez-admin/static/media/sub.8a5a641039c3bff79fe4.png",
     "index.html": "/easycheez-admin/index.html",
-    "main.6e17fa81.css.map": "/easycheez-admin/static/css/main.6e17fa81.css.map",
-    "main.6482da9d.js.map": "/easycheez-admin/static/js/main.6482da9d.js.map",
+    "main.18728e66.css.map": "/easycheez-admin/static/css/main.18728e66.css.map",
+    "main.40403e1c.js.map": "/easycheez-admin/static/js/main.40403e1c.js.map",
     "787.73df07b0.chunk.js.map": "/easycheez-admin/static/js/787.73df07b0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6e17fa81.css",
-    "static/js/main.6482da9d.js"
+    "static/css/main.18728e66.css",
+    "static/js/main.40403e1c.js"
   ]
 }
