@@ -23,25 +23,23 @@ const SubCard = () => {
   };
   return (
     <>
-    {data.map((item)=>(
-      <div className="main_container">
-        <div className="subscription_container"></div>
-        <div className="subscription_detail_container">
-          <h4>{item.StoreName}</h4>
-          <img
-            src="https://knowreva.netlify.app/buildings/undraw_Building_re_xfcm.png"
-            alt=""
-          />
-          {/* <p>Subscription valid till - 9 FEB</p>
+      {data.map((item) => (
+        <div className="main_container">
+          <div className="subscription_container"></div>
+          <div className="subscription_detail_container">
+            <h4>{item.StoreName}</h4>
+            <img
+              src="https://knowreva.netlify.app/buildings/undraw_Building_re_xfcm.png"
+              alt=""
+            />
+            {/* <p>Subscription valid till - 9 FEB</p>
           <p className="sub">Subscription 499/-</p> */}
-          <p>Location :{item.location}</p>
-                 <p>Contact details : {item.contact}</p>
-                 
-                 
+            <p>Location :{item.location}</p>
+            <p>Valid till : {item.expireDate.substring(0, 15)}</p>
+          </div>
         </div>
-      </div>
-    ))}
-      
+      ))}
+
     </>
   );
 };
