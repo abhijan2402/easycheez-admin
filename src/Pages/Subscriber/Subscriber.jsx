@@ -12,8 +12,8 @@ const Subscriber = () => {
         <div className="subscriber_bar">
           {/* <div className="subscriber_home_icon"><img src={home} alt="" /></div> */}
           <div className="subscriber_page">
-           
-            <p className="active">Subscriber</p>
+
+            <p className="active">Subscription</p>
           </div>
         </div>
         <div className="subscriber_card">

@@ -7,7 +7,7 @@ import { ContextData } from '../../App';
 import { Link, useLocation } from "react-router-dom";
 
 const OrderCard = () => {
-    
+
     const { userUid, getAutherUserDetails } = useContext(ContextData);
     const [orderDetail, setOrderDetail] = useState([]);
     const [StoreDetail, setStoreDetail] = useState([]);
@@ -48,19 +48,19 @@ const OrderCard = () => {
 
                                         ))
                                     } */}
-                                    <p>Total Order :</p>
-                                    <p>Contact Details : </p>
+                                    {/* <p>Total Order :</p>
+                                    <p>Contact Details : </p> */}
                                 </div>
                                 <div style={{ width: "100%", display: "flex", justifyContent: "space-around", textAlign: "center" }}>
 
                                     <Link to="/ActiveOrderCard" style={{ textDecoration: "none", cursor: "pointer" }}
-                                        state={{item:item}}
+                                        state={{ item: item }}
                                     >
                                         <button style={{ color: "white", backgroundColor: "#005b8f", borderRadius: "5px", padding: "5px 10px 5px 10px" }}>
                                             See Active Order
                                         </button>
                                     </Link>
-                                    <Link to="/ComOrderCard" style={{ textDecoration: "none", cursor: "pointer" }} state={{item:item}}>
+                                    <Link to="/ComOrderCard" style={{ textDecoration: "none", cursor: "pointer" }} state={{ item: item }}>
                                         <button style={{ color: "white", backgroundColor: "#005b8f", borderRadius: "5px", padding: "5px 10px 5px 10px" }}>
                                             See Completed Order
                                         </button>
