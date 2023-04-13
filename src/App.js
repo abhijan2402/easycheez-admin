@@ -15,6 +15,7 @@ import PopUp from './Components/CommissionPopUp/PopUp';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import ActiveOrderCard from './Components/OrderCard/ActiveOrderCard';
 import CompletedOrderCard from './Components/OrderCard/CompletedOrderCard';
+import ShopUsers from './Pages/users/ShopUsers';
 export const ContextData = createContext();
 function App() {
   const [userUid, setUserUid] = useState(null);
@@ -31,7 +32,6 @@ function App() {
         setUserUid(uid);
         setUserEmail(email)
       } else {
-        console.log("User Not Authenticated")
         setUserUid(userValue);
       }
     });
@@ -65,6 +65,7 @@ function App() {
                   <Route path='/OrderCard' element={<OrderCard />} />
                   <Route path='/ActiveOrderCard' element={<ActiveOrderCard />} />
                   <Route path='/ComOrderCard' element={<CompletedOrderCard />} />
+                  <Route path='/shopUsers' element={<ShopUsers />} />
 
                 </Routes>
               </ContextData.Provider>

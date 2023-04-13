@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import './PercentCard.css';
 import percentcard from '../../assest/percentcard.png'
 import { db, storage } from "../../firebase";
-import { collection, query, getDocs, documentId, QuerySnapshot } from "firebase/firestore";
+import { collection, query, getDocs, documentId, where } from "firebase/firestore";
 import Subscriber from '../../Pages/Subscriber/Subscriber';
 const PercentCard = () => {
     useEffect(() => {
@@ -11,15 +11,14 @@ const PercentCard = () => {
       }, []);
       const [data, setdata] = useState([]);
       const getData = async () => {
-        let resultArray = [];
-        const q = query(collection(db, "Comission"));
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-          resultArray.push({ id: doc.id, ...doc.data() });
-        });
-        // console.log(resultArray)
-        setdata(resultArray);
-        console.log(data)
+          const finalCommisionArray=[]
+          let resultArray = [];
+          const q = query(collection(db, "Comission"));
+          const querySnapshot = await getDocs(q);
+          querySnapshot.forEach((doc) => {
+            resultArray.push({ id: doc.id, ...doc.data() });
+          });
+          setdata(resultArray);
       };
       
   return (
@@ -36,7 +35,7 @@ const PercentCard = () => {
              <div className="details">
              {/* <p >hi</p> */}
                  <p>Location :{item.location}</p>
-                 <p>Contact details : {item.contact}</p>
+                 <p>Contact details : {item.Phone}</p>
                  <p>PinCode : {item.Pincode}</p>
                  <p>Subscription valid till : 9, FEB</p>
              </div>

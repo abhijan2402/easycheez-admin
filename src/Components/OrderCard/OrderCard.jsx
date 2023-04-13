@@ -26,7 +26,7 @@ const OrderCard = () => {
                 resultArray.push({ id: item.id, ...item.data() });
             })
             setStoreDetail(resultArray)
-
+            console.log(resultArray)
         })
     }
     return (

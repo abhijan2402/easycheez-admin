@@ -13,7 +13,6 @@ const SignUp = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user.uid)
         const userRef = doc(db, 'Users', user.uid);
         setDoc(userRef, {
           admin: true,
