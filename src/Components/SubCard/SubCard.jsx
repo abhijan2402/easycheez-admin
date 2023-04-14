@@ -31,6 +31,7 @@ const SubCard = () => {
             <img
               src="https://knowreva.netlify.app/buildings/undraw_Building_re_xfcm.png"
               alt=""
+              style={{ marginTop: "10px" }}
             />
             {/* <p>Subscription valid till - 9 FEB</p>
           <p className="sub">Subscription 499/-</p> */}
