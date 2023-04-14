@@ -34,9 +34,9 @@ const SubCard = () => {
             />
             {/* <p>Subscription valid till - 9 FEB</p>
           <p className="sub">Subscription 499/-</p> */}
-          <p>Location :{item.location}</p>
-                 <p>Contact details : {item.Phone}</p>
             <p>Location :{item.location}</p>
+            <p>Contact details : {item.Phone}</p>
+            {/* <p>Location :{item.location}</p> */}
             <p>Valid till : {item.expireDate.substring(0, 15)}</p>
           </div>
         </div>
