@@ -63,7 +63,7 @@ const UserCard = ({ item }) => {
         await deleteDoc(doc(db, "Users", item.id));
         await deleteDoc(doc(db, "StoreRegis", item.storeID));
         await deleteDoc(doc(db, "SellerShop", item.profileID));
-        alert("deleted ,Please Refresh")
+        alert("deleted ,Please use  Admin Page Refresh button")
         // deleteUser(item.id)
         // .then(() => {
         //     console.log("USer deleted")
