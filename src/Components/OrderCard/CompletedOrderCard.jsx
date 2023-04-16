@@ -8,14 +8,14 @@ import { Link, useLocation } from "react-router-dom";
 import { getOrderStatusWise } from '../../services/getOrderStatusWise';
 import StoreOrdeeCard from './StoreOrdeeCard';
 function CompletedOrderCard() {
-    const location=useLocation();
+    const location = useLocation();
     const [completedOrders, setCompletedOrders] = useState([]);
-    useEffect(()=>{
+    useEffect(() => {
         getOrders()
-    },[]);
-    async function getOrders(){
-        let response=await getOrderStatusWise("complete",location.state.item.id)
-        if(response.error){
+    }, []);
+    async function getOrders() {
+        let response = await getOrderStatusWise("complete", location.state.item.id)
+        if (response.error) {
             alert("Something went wrong!");
             return;
         }
@@ -34,19 +34,19 @@ function CompletedOrderCard() {
                     <div className="order_card_details">
                         <h3>{location.state.item.shopName}</h3>
                         <div className="order_details">
-                            <p>Total Active Order : {completedOrders.length ===0?0:completedOrders.length}</p>
+                            <p>Total Completed Order : {completedOrders.length === 0 ? 0 : completedOrders.length}</p>
                         </div>
 
                     </div>
                 </div>
             </div>
-            <h2 style={{marginLeft:150}}>Orders</h2>
+            <h2 style={{ marginLeft: 150 }}>Orders</h2>
             <div className='orders-container'>
-                {   
-                    completedOrders.length===0?<h3 style={{fontSize:20,marginLeft:150}}>No complete Order</h3>:
-                    completedOrders.map((item,index)=>(
-                        <StoreOrdeeCard key={index} storeData={location.state.item} ordereData={item} />
-                    ))
+                {
+                    completedOrders.length === 0 ? <h3 style={{ fontSize: 20, marginLeft: 150 }}>No complete Order</h3> :
+                        completedOrders.map((item, index) => (
+                            <StoreOrdeeCard key={index} storeData={location.state.item} ordereData={item} />
+                        ))
                 }
             </div>
         </>
