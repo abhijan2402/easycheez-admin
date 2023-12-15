@@ -16,6 +16,8 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import ActiveOrderCard from './Components/OrderCard/ActiveOrderCard';
 import CompletedOrderCard from './Components/OrderCard/CompletedOrderCard';
 import ShopUsers from './Pages/users/ShopUsers';
+import Categories from './Pages/Category/Categories';
+import Banner from './Pages/Banner';
 export const ContextData = createContext();
 function App() {
   const [userUid, setUserUid] = useState(null);
@@ -66,6 +68,9 @@ function App() {
                   <Route path='/ActiveOrderCard' element={<ActiveOrderCard />} />
                   <Route path='/ComOrderCard' element={<CompletedOrderCard />} />
                   <Route path='/shopUsers' element={<ShopUsers />} />
+                  <Route path='/Category' element={<Categories />} />
+                  <Route path='/Banner' element={<Banner />} />
+
 
                 </Routes>
               </ContextData.Provider>
