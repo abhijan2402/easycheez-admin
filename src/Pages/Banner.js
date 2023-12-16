@@ -9,6 +9,7 @@ function Banner() {
     const [DownloadedUrl, setDownloadedUrl] = useState("");
     const [CateName, setCateName] = useState("");
     const [dataImg, setdataImg] = useState([]);
+    const [disable, setdisable] = useState(false)
     const getDownloadUrl = async (file) => {
         const storageRef = ref(storage, `/Banner/${file?.name}`);
         const uploadTask = uploadBytesResumable(storageRef, file);
@@ -35,26 +36,31 @@ function Banner() {
     const UploadImge = async (e) => {
         const namesArray = NameSeperator(e.target.files[0].type);
         // console.log(namesArray, "NAMESARRAY");
-        setTitleImage(e.target.files[0].name);
+        setTitleImage(e.target.files[0]);
         // console.log(e.target.files[0], "NAMESARRAY");
         // console.log(e.target.files[0].name, "FILLLLLLLE");
-        const titleImageUrl = await getDownloadUrl(e.target.files[0]);
+        // const titleImageUrl = await getDownloadUrl(e.target.files[0]);
         // console.log(titleImageUrl, "LLL");
-        setDownloadedUrl(titleImageUrl);
+        // setDownloadedUrl(titleImageUrl);
     };
     const createData = async () => {
+        setdisable(true)
         // console.log(CateName);
-        if (DownloadedUrl == "") {
+        const titleImageUrl = await getDownloadUrl(titleImage)
+        console.log(titleImageUrl, "IMGG");
+        setDownloadedUrl(titleImageUrl);
+        if (titleImageUrl == "") {
             alert("Please add atleast one Image")
         }
         else {
             await addDoc(collection(db, "Banner"), {
-                BannerImg: DownloadedUrl,
+                BannerImg: titleImageUrl,
             })
                 .then((docRef) => {
+                    alert("Banner added")
                     getData()
+                    setdisable(false)
                     return docRef.id;
-
                 })
                 .catch((e) => {
                     alert("Some thing gonna wrond Please try again");
@@ -114,6 +120,7 @@ function Banner() {
                     }}
                 />
                 <button
+                    disabled={disable ? true : false}
                     onClick={createData}
                     style={{
                         width: "45%",
@@ -155,6 +162,7 @@ function Banner() {
                                 onClick={() => {
                                     delData(item);
                                 }}
+
                                 style={{
                                     width: "100%",
                                     backgroundColor: "blue",

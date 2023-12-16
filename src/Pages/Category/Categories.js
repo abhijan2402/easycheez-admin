@@ -9,6 +9,8 @@ function Categories() {
     const [DownloadedUrl, setDownloadedUrl] = useState("");
     const [CateName, setCateName] = useState("");
     const [dataImg, setdataImg] = useState([]);
+    const [disable, setdisable] = useState(false)
+
     const getDownloadUrl = async (file) => {
         console.log(file, "I MA FILE");
         const storageRef = ref(storage, `/category/${file?.name}`);
@@ -36,24 +38,34 @@ function Categories() {
     const UploadImge = async (e) => {
         const namesArray = NameSeperator(e.target.files[0].type);
         console.log(namesArray, "NAMESARRAY");
-        setTitleImage(e.target.files[0].name);
+        setTitleImage(e.target.files[0]);
         console.log(e.target.files[0], "NAMESARRAY");
         console.log(e.target.files[0].name, "FILLLLLLLE");
-        const titleImageUrl = await getDownloadUrl(e.target.files[0]);
-        console.log(titleImageUrl, "LLL");
-        setDownloadedUrl(titleImageUrl);
+
+        // const titleImageUrl = await getDownloadUrl(e.target.files[0]);
+
+        // console.log(titleImageUrl, "LLL");
+        // setDownloadedUrl(titleImageUrl);
     };
     const createData = async () => {
+        setdisable(true)
+
+        const titleImageUrl = await getDownloadUrl(titleImage)
+        console.log(titleImageUrl, "IMGG");
+        setDownloadedUrl(titleImageUrl);
         console.log(CateName);
-        if (CateName == "" || DownloadedUrl == "") {
+        if (CateName == "" || titleImageUrl == "") {
             alert("Please fill all the details")
         }
         else {
             await addDoc(collection(db, "Category"), {
                 CatName: CateName,
-                CatImg: DownloadedUrl,
+                CatImg: titleImageUrl,
             })
                 .then((docRef) => {
+                    alert("Category added")
+                    setdisable(false)
+
                     getData()
                     return docRef.id;
 
@@ -78,8 +90,9 @@ function Categories() {
     const delData = async (item) => {
         console.log(item);
         try {
-            //   await StorageDeletion(item);
             await deleteDoc(doc(db, "Category", item.id));
+            alert("Category deleted")
+
             getData();
         } catch (error) {
             console.log(error);
@@ -123,6 +136,7 @@ function Categories() {
                     }}
                 />
                 <button
+                    disabled={disable ? true : false}
                     onClick={createData}
                     style={{
                         width: "45%",

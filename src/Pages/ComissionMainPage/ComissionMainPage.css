@@ -1,17 +1,20 @@
-.admin_bar{
+.admin_bar {
     /* border: 2px solid red; */
     display: flex;
     padding: 0px 30px;
     align-items: center;
     background-color: #005B8F;
 }
-.home_icon{
+
+.home_icon {
     /* border: 2px solid black; */
 }
-.home_icon img{
+
+.home_icon img {
     width: 40px;
 }
-.admin_page{
+
+.admin_page {
     color: #FFFFFF;
     font-weight: 600;
     font-size: 15px;
@@ -19,24 +22,27 @@
     padding: 0 20px;
 }
 
-.comission_content{
+.comission_content {
     /* border: 2px solid black; */
     display: flex;
     justify-content: center;
     /* height: 100vh; */
 }
-.shop_image{
+
+.shop_image {
     /* border: 2px solid yellow; */
     width: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .shop_image img {
     width: 70%;
     height: 100%;
 }
-.buttons{
+
+.buttons {
     /* border: 3px solid green; */
     width: 40%;
     display: flex;
@@ -44,12 +50,15 @@
     /* justify-content: center; */
     flex-direction: column;
     margin-top: 150px;
+    margin-bottom: 100px;
 }
+
 .btn {
     width: 250px;
     height: 45x;
 }
-.btn_link{
+
+.btn_link {
     text-decoration: none;
     margin-top: 50px;
 }
@@ -57,31 +66,38 @@
 
 
 @media screen and (max-width:1170px) {
-    .buttons{
+    .buttons {
         margin-top: 90px;
     }
+
     .shop_image img {
         width: 85%;
     }
 }
+
 @media screen and (max-width:860px) {
-    .buttons{
+    .buttons {
         margin-top: 90px;
     }
+
     .shop_image img {
         width: 100%;
     }
 }
+
 @media screen and (max-width:699px) {
-    .buttons{
+    .buttons {
         margin-top: 90px;
     }
-    .shop_image{
+
+    .shop_image {
         width: 100%;
     }
+
     .shop_image img {
         width: 70%;
     }
+
     .buttons {
         width: 100%;
         flex-wrap: wrap;
@@ -90,6 +106,7 @@
         margin-bottom: 20px;
         margin-top: 10px;
     }
+
     .comission_content {
         /* border: 2px solid black; */
         display: flex;
@@ -99,26 +116,30 @@
     }
 }
 
-@media screen and (max-width:530px){
+@media screen and (max-width:530px) {
     .btn {
         width: 300px;
     }
+
     .buttons {
         margin-top: 10px;
     }
+
     .shop_image img {
         width: 85%;
     }
 }
-@media screen and (max-width:378px){
+
+@media screen and (max-width:378px) {
     .btn {
         width: 220px;
     }
+
     .buttons {
         margin-top: 10px;
     }
+
     .shop_image img {
         width: 95%;
     }
 }
-

@@ -12,6 +12,8 @@ function DefaultProduct() {
     const [dataImg, setdataImg] = useState([]);
     const [groTrue, setgroTrue] = useState(true)
     const [ActiveType, setActiveType] = useState("grocery")
+    const [disable, setdisable] = useState(false)
+
     const getDownloadUrl = async (file) => {
         console.log(file, "I MA FILE");
         const storageRef = ref(storage, `/default_product/${file?.name}`);
@@ -52,6 +54,8 @@ function DefaultProduct() {
             alert("Please fill all the details")
         }
         else {
+            setdisable(true)
+
             await addDoc(collection(db, groTrue ? "grocery" : "food"), {
                 Category: groTrue ? "grocery" : "food",
                 ProImage: DownloadedUrl,
@@ -60,6 +64,9 @@ function DefaultProduct() {
             })
                 .then((docRef) => {
                     console.log(docRef, "I am console");
+                    alert("Item added")
+                    setdisable(false)
+
                     getData()
                     return docRef.id;
 
@@ -132,6 +139,7 @@ function DefaultProduct() {
                     <div onClick={() => { setgroTrue(false) }} style={{ background: groTrue ? "white" : "blue", padding: "10px 20px", color: groTrue ? 'black' : "white", borderRadius: "8px", border: "1px solid blue" }}>Food</div>
                 </div>
                 <button
+                    disabled={disable ? true : false}
                     onClick={createData}
                     style={{
                         width: "45%",
