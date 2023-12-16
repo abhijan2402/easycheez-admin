@@ -31,6 +31,7 @@ const ComissionMainPage = () => {
             <Link to="/shopUsers" className='btn_link'><Button variant="contained" className='btn' style={{ fontSize: "16px", backgroundColor: "#005B8F" }}>Shop Users</Button></Link>
             <Link to="/Category" className='btn_link'><Button variant="contained" className='btn' style={{ fontSize: "16px", backgroundColor: "#005B8F" }}>Categories</Button></Link>
             <Link to="/Banner" className='btn_link'><Button variant="contained" className='btn' style={{ fontSize: "16px", backgroundColor: "#005B8F" }}>Banner</Button></Link>
+            <Link to="/DefaultProduct" className='btn_link'><Button variant="contained" className='btn' style={{ fontSize: "16px", backgroundColor: "#005B8F" }}>Default Products</Button></Link>
 
             <Link className='btn_link'><Button onClick={logOut} variant="contained" className='btn' style={{ fontSize: "16px", backgroundColor: "#005B8F" }}>LogOut</Button></Link>
 

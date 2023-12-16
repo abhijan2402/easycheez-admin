@@ -18,6 +18,7 @@ import CompletedOrderCard from './Components/OrderCard/CompletedOrderCard';
 import ShopUsers from './Pages/users/ShopUsers';
 import Categories from './Pages/Category/Categories';
 import Banner from './Pages/Banner';
+import DefaultProduct from './Pages/DefaultProduct';
 export const ContextData = createContext();
 function App() {
   const [userUid, setUserUid] = useState(null);
@@ -70,6 +71,8 @@ function App() {
                   <Route path='/shopUsers' element={<ShopUsers />} />
                   <Route path='/Category' element={<Categories />} />
                   <Route path='/Banner' element={<Banner />} />
+                  <Route path='/DefaultProduct' element={<DefaultProduct />} />
+
 
 
                 </Routes>
