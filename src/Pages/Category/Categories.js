@@ -4,12 +4,14 @@ import { collection, addDoc } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { db, storage } from "../../firebase";
 import { NameSeperator } from "../../helpers/NameSeparator";
+import { ColorRing } from "react-loader-spinner";
 function Categories() {
     const [titleImage, setTitleImage] = useState("");
     const [DownloadedUrl, setDownloadedUrl] = useState("");
     const [CateName, setCateName] = useState("");
     const [dataImg, setdataImg] = useState([]);
     const [disable, setdisable] = useState(false)
+    const [loader, setloader] = useState(false)
 
     const getDownloadUrl = async (file) => {
         console.log(file, "I MA FILE");
@@ -49,13 +51,14 @@ function Categories() {
     };
     const createData = async () => {
         setdisable(true)
-
+        setloader(true)
         const titleImageUrl = await getDownloadUrl(titleImage)
         console.log(titleImageUrl, "IMGG");
         setDownloadedUrl(titleImageUrl);
         console.log(CateName);
         if (CateName == "" || titleImageUrl == "") {
             alert("Please fill all the details")
+            setloader(false)
         }
         else {
             await addDoc(collection(db, "Category"), {
@@ -65,7 +68,7 @@ function Categories() {
                 .then((docRef) => {
                     alert("Category added")
                     setdisable(false)
-
+                    setloader(false)
                     getData()
                     return docRef.id;
 
@@ -73,6 +76,7 @@ function Categories() {
                 .catch((e) => {
                     alert("Some thing gonna wrond Please try again");
                     setdisable(false)
+                    setloader(false)
 
                 });
         }
@@ -156,7 +160,19 @@ function Categories() {
                         border: "0px",
                     }}
                 >
-                    ADD CATEGORIES
+                    {
+                        loader ?
+                            <ColorRing
+                                visible={true}
+                                height="25"
+                                width="25"
+                                ariaLabel="blocks-loading"
+                                wrapperStyle={{}}
+                                wrapperClass="blocks-wrapper"
+                                colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+                            /> : "ADD CATEGORIES"
+                    }
+
                 </button>
             </div>
             <div

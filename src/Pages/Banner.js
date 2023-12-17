@@ -4,12 +4,16 @@ import { collection, addDoc } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { db, storage } from "../firebase";
 import { NameSeperator } from "../helpers/NameSeparator";
+import { ColorRing } from 'react-loader-spinner'
+
 function Banner() {
     const [titleImage, setTitleImage] = useState("");
     const [DownloadedUrl, setDownloadedUrl] = useState("");
     const [CateName, setCateName] = useState("");
     const [dataImg, setdataImg] = useState([]);
     const [disable, setdisable] = useState(false)
+    const [Bannertype, setBannertype] = useState(false)
+    const [loader, setloader] = useState(false)
     const getDownloadUrl = async (file) => {
         const storageRef = ref(storage, `/Banner/${file?.name}`);
         const uploadTask = uploadBytesResumable(storageRef, file);
@@ -35,15 +39,10 @@ function Banner() {
 
     const UploadImge = async (e) => {
         const namesArray = NameSeperator(e.target.files[0].type);
-        // console.log(namesArray, "NAMESARRAY");
         setTitleImage(e.target.files[0]);
-        // console.log(e.target.files[0], "NAMESARRAY");
-        // console.log(e.target.files[0].name, "FILLLLLLLE");
-        // const titleImageUrl = await getDownloadUrl(e.target.files[0]);
-        // console.log(titleImageUrl, "LLL");
-        // setDownloadedUrl(titleImageUrl);
     };
     const createData = async () => {
+        setloader(true)
         setdisable(true)
         // console.log(CateName);
         const titleImageUrl = await getDownloadUrl(titleImage)
@@ -51,19 +50,23 @@ function Banner() {
         setDownloadedUrl(titleImageUrl);
         if (titleImageUrl == "") {
             alert("Please add atleast one Image")
+            setloader(false)
         }
         else {
             await addDoc(collection(db, "Banner"), {
                 BannerImg: titleImageUrl,
+                BannerType: Bannertype ? "User" : "Seller"
             })
                 .then((docRef) => {
                     alert("Banner added")
                     getData()
                     setdisable(false)
+                    setloader(false)
                     return docRef.id;
                 })
                 .catch((e) => {
                     alert("Some thing gonna wrond Please try again");
+                    setloader(false)
                 });
         }
     };
@@ -105,6 +108,7 @@ function Banner() {
                     alignItems: "center",
                 }}
             >
+
                 <input
                     placeholder="select Image"
                     onChange={(val) => {
@@ -119,6 +123,10 @@ function Banner() {
                         marginTop: 10,
                     }}
                 />
+                <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", width: "45%", marginTop: "15px" }}>
+                    <div onClick={() => { setBannertype(true) }} style={{ background: Bannertype ? "blue" : "white", padding: "10px 20px", color: Bannertype ? 'white' : "black", borderRadius: "8px", border: "1px solid blue" }}>USER</div>
+                    <div onClick={() => { setBannertype(false) }} style={{ background: Bannertype ? "white" : "blue", padding: "10px 20px", color: Bannertype ? 'black' : "white", borderRadius: "8px", border: "1px solid blue" }}>SELLER</div>
+                </div>
                 <button
                     disabled={disable ? true : false}
                     onClick={createData}
@@ -131,7 +139,19 @@ function Banner() {
                         border: "0px",
                     }}
                 >
-                    ADD BANNER
+                    {
+                        loader ?
+                            <ColorRing
+                                visible={true}
+                                height="25"
+                                width="25"
+                                ariaLabel="blocks-loading"
+                                wrapperStyle={{}}
+                                wrapperClass="blocks-wrapper"
+                                colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+                            /> : "ADD BANNER"
+                    }
+                    {/* ADD BANNER */}
                 </button>
             </div>
             <div

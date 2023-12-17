@@ -4,6 +4,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { db, storage } from "../firebase";
 import { NameSeperator } from "../helpers/NameSeparator";
+import { ColorRing } from 'react-loader-spinner';
 function DefaultProduct() {
     const [ProductName, setProductName] = useState("")
     const [titleImage, setTitleImage] = useState("");
@@ -16,6 +17,8 @@ function DefaultProduct() {
     const [CatePrice, setCatePrice] = useState("")
     const [CategoryData, setCategoryData] = useState([])
     const [SelcetdCat, setSelcetdCat] = useState("")
+    const [loader, setloader] = useState(false)
+
     const getDownloadUrl = async (file) => {
         console.log(file, "I MA FILE");
         const storageRef = ref(storage, `/default_product/${file?.name}`);
@@ -51,10 +54,25 @@ function DefaultProduct() {
         setDownloadedUrl(titleImageUrl);
     };
     const createData = async () => {
+        setloader(true)
         console.log(CateName);
-        if (ProductName == "" || DownloadedUrl == "" || CatePrice == "" || SelcetdCat == "") {
-            alert("Please fill all the details")
+        if (ProductName == "") {
+            alert("Please fill Product Name")
+            setloader(false)
         }
+        else if (DownloadedUrl == "") {
+            alert("Please Add Image again")
+            setloader(false)
+        }
+        else if (CatePrice == "") {
+            alert("Please Add Price")
+            setloader(false)
+        }
+        else if (SelcetdCat == "") {
+            alert("Please select Category once again")
+            setloader(false)
+        }
+
         else {
             setdisable(true)
 
@@ -70,13 +88,14 @@ function DefaultProduct() {
                     console.log(docRef, "I am console");
                     alert("Item added")
                     setdisable(false)
-
+                    setloader(false)
                     getData()
                     return docRef.id;
 
                 })
                 .catch((e) => {
                     alert("Some thing gonna wrond Please try again");
+                    setloader(false)
                 });
         }
     };
@@ -184,7 +203,19 @@ function DefaultProduct() {
                         border: "0px",
                     }}
                 >
-                    ADD PRODUCT
+                    {
+                        loader ?
+                            <ColorRing
+                                visible={true}
+                                height="25"
+                                width="25"
+                                ariaLabel="blocks-loading"
+                                wrapperStyle={{}}
+                                wrapperClass="blocks-wrapper"
+                                colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+                            /> : "ADD PRODUCT"
+                    }
+
                 </button>
             </div>
             <div style={{ display: "flex", flexDirection: "row", width: "100%", }}>
