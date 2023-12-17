@@ -72,6 +72,8 @@ function Categories() {
                 })
                 .catch((e) => {
                     alert("Some thing gonna wrond Please try again");
+                    setdisable(false)
+
                 });
         }
     };
@@ -121,6 +123,13 @@ function Categories() {
                     }}
                     style={{ width: "45%", padding: "10px 10px", borderRadius: "5px" }}
                 />
+                {/* <input
+                    placeholder="Category Price"
+                    onChange={(e) => {
+                        setCateName(e.target.value);
+                    }}
+                    style={{ width: "45%", padding: "10px 10px", borderRadius: "5px", marginTop: 10 }}
+                /> */}
                 <input
                     placeholder="select Image"
                     onChange={(val) => {

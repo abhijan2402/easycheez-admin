@@ -13,7 +13,9 @@ function DefaultProduct() {
     const [groTrue, setgroTrue] = useState(true)
     const [ActiveType, setActiveType] = useState("grocery")
     const [disable, setdisable] = useState(false)
-
+    const [CatePrice, setCatePrice] = useState("")
+    const [CategoryData, setCategoryData] = useState([])
+    const [SelcetdCat, setSelcetdCat] = useState("")
     const getDownloadUrl = async (file) => {
         console.log(file, "I MA FILE");
         const storageRef = ref(storage, `/default_product/${file?.name}`);
@@ -50,7 +52,7 @@ function DefaultProduct() {
     };
     const createData = async () => {
         console.log(CateName);
-        if (ProductName == "" || DownloadedUrl == "") {
+        if (ProductName == "" || DownloadedUrl == "" || CatePrice == "" || SelcetdCat == "") {
             alert("Please fill all the details")
         }
         else {
@@ -59,7 +61,9 @@ function DefaultProduct() {
             await addDoc(collection(db, groTrue ? "grocery" : "food"), {
                 Category: groTrue ? "grocery" : "food",
                 ProImage: DownloadedUrl,
-                ProductName: ProductName
+                ProductName: ProductName,
+                ProductPrice: CatePrice,
+                CategoryType: SelcetdCat
 
             })
                 .then((docRef) => {
@@ -87,6 +91,16 @@ function DefaultProduct() {
         setdataImg(resultArray);
         console.log(dataImg);
     };
+    const getCategoryData = async () => {
+        let resultArray = [];
+        const q = query(collection(db, "Category"));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+            resultArray.push({ id: doc.id, ...doc.data() });
+        });
+        console.log(resultArray, "CATEGORY_DATA");
+        setCategoryData(resultArray);
+    };
 
     const delData = async (item) => {
         console.log(item);
@@ -102,6 +116,10 @@ function DefaultProduct() {
     useEffect(() => {
         getData();
     }, [ActiveType]);
+    useEffect(() => {
+        getCategoryData()
+    }, [])
+
     return (
         <>
             <h1 style={{ textAlign: "center" }}>Default Product</h1>
@@ -120,6 +138,22 @@ function DefaultProduct() {
                     }}
                     style={{ width: "45%", padding: "10px 10px", borderRadius: "5px" }}
                 />
+                <input
+                    placeholder="Product Price"
+                    onChange={(e) => {
+                        setCatePrice(e.target.value);
+                    }}
+                    style={{ width: "45%", padding: "10px 10px", borderRadius: "5px", marginTop: "10px" }}
+                />
+                <select value={SelcetdCat} onChange={(e) => { setSelcetdCat(e.target.value); }} style={{ width: "45%", padding: "10px 10px", borderRadius: "5px", marginTop: "10px" }}>
+                    {
+                        CategoryData?.map((item) => (
+                            <option value={item?.CatName}>{item?.CatName}</option>
+                        ))
+                    }
+
+
+                </select>
                 <input
                     placeholder="select Image"
                     onChange={(val) => {
@@ -183,6 +217,8 @@ function DefaultProduct() {
                                 style={{ width: "100%", height: 200, alignItems: "center" }}
                             />
                             <h3 style={{ textAlign: "center", width: "100%", fontSize: "1em" }}>{item?.ProductName}</h3>
+                            <h3 style={{ textAlign: "center", width: "100%", fontSize: "1em", fontWeight: "700" }}>Price : {item?.ProductPrice}</h3>
+
                             <button
                                 onClick={() => {
                                     delData(item);
