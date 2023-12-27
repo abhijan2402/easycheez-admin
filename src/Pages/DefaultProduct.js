@@ -16,6 +16,18 @@ function DefaultProduct() {
     const [disable, setdisable] = useState(false)
     const [CatePrice, setCatePrice] = useState("")
     const [CategoryData, setCategoryData] = useState([])
+
+    const [CategoryDataFood, setCategoryDataFood] = useState([
+        {
+            label: "Veg",
+            value: "Veg"
+        },
+        {
+            label: "NonVeg",
+            value: "NonVeg"
+        },
+    ])
+
     const [SelcetdCat, setSelcetdCat] = useState("")
     const [loader, setloader] = useState(false)
 
@@ -68,9 +80,19 @@ function DefaultProduct() {
             alert("Please Add Price")
             setloader(false)
         }
-        else if (SelcetdCat == "") {
-            alert("Please select Category once again")
+        // else if (SelcetdCat == "") {
+        //     alert("Please select Category once again")
+        //     setloader(false)
+        // }
+        if (groTrue && SelcetdCat == "") {
+            alert("Please select grocery Category once again")
             setloader(false)
+
+        }
+        else if (!groTrue && CategoryDataFood == "") {
+            alert("Please select food Category once again")
+            setloader(false)
+
         }
 
         else {
@@ -81,7 +103,7 @@ function DefaultProduct() {
                 ProImage: DownloadedUrl,
                 ProductName: ProductName,
                 ProductPrice: CatePrice,
-                CategoryType: SelcetdCat
+                CategoryType: groTrue ? SelcetdCat : CategoryDataFood
 
             })
                 .then((docRef) => {
@@ -164,15 +186,25 @@ function DefaultProduct() {
                     }}
                     style={{ width: "45%", padding: "10px 10px", borderRadius: "5px", marginTop: "10px" }}
                 />
-                <select value={SelcetdCat} onChange={(e) => { setSelcetdCat(e.target.value); }} style={{ width: "45%", padding: "10px 10px", borderRadius: "5px", marginTop: "10px" }}>
-                    {
-                        CategoryData?.map((item) => (
-                            <option value={item?.CatName}>{item?.CatName}</option>
-                        ))
-                    }
+                <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", width: "45%", marginTop: "15px" }}>
+                    <div onClick={() => { setgroTrue(true) }} style={{ background: groTrue ? "blue" : "white", padding: "10px 20px", color: groTrue ? 'white' : "black", borderRadius: "8px", border: "1px solid blue" }}>Grocery</div>
+                    <div onClick={() => { setgroTrue(false) }} style={{ background: groTrue ? "white" : "blue", padding: "10px 20px", color: groTrue ? 'black' : "white", borderRadius: "8px", border: "1px solid blue" }}>Food</div>
+                </div>
+                {
+                    groTrue ?
+                        <select value={SelcetdCat} onChange={(e) => { setSelcetdCat(e.target.value); }} style={{ width: "45%", padding: "10px 10px", borderRadius: "5px", marginTop: "10px" }}>
+                            {
+                                CategoryData?.map((item) => (
+                                    <option value={item?.CatName}>{item?.CatName}</option>
+                                ))
+                            }
+                        </select> :
+                        <select value={CategoryDataFood} onChange={(e) => { setCategoryDataFood(e.target.value); }} style={{ width: "45%", padding: "10px 10px", borderRadius: "5px", marginTop: "10px" }}>
+                            <option value="Veg">Veg</option>
+                            <option value="NonVeg">NonVeg</option>
+                        </select>
+                }
 
-
-                </select>
                 <input
                     placeholder="select Image"
                     onChange={(val) => {
@@ -187,10 +219,7 @@ function DefaultProduct() {
                         marginTop: 10,
                     }}
                 />
-                <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", width: "45%", marginTop: "15px" }}>
-                    <div onClick={() => { setgroTrue(true) }} style={{ background: groTrue ? "blue" : "white", padding: "10px 20px", color: groTrue ? 'white' : "black", borderRadius: "8px", border: "1px solid blue" }}>Grocery</div>
-                    <div onClick={() => { setgroTrue(false) }} style={{ background: groTrue ? "white" : "blue", padding: "10px 20px", color: groTrue ? 'black' : "white", borderRadius: "8px", border: "1px solid blue" }}>Food</div>
-                </div>
+
                 <button
                     disabled={disable ? true : false}
                     onClick={createData}
